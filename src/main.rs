@@ -70,7 +70,7 @@ fn formatTime(time: i64) -> String {
 }
 #[component]
 fn App() -> Element {
-    let mut location = use_signal(|| "Neftekamsk".to_string());
+    let mut location = use_signal(|| "".to_string());
     let weather = use_resource(move || async move { get_weather(location.to_string()).await });
     let forecast = use_resource(move || async move { get_forecast(location.to_string()).await });
 
