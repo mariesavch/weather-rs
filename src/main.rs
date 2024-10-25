@@ -3,11 +3,13 @@
 use chrono::DateTime;
 use chrono_tz::Tz;
 use dioxus::prelude::*;
+use dioxus_sdk::storage::*;
 use serde::Deserialize;
 
 const _TAILWIND_URL: &str = manganis::mg!(file("assets/tailwind.css"));
 
 fn main() {
+    dioxus_sdk::storage::set_dir!();
     dioxus::launch(App);
 }
 
@@ -70,7 +72,8 @@ fn formatTime(time: i64) -> String {
 }
 #[component]
 fn App() -> Element {
-    let mut location = use_signal(|| "".to_string());
+    let mut location =
+        use_synced_storage::<LocalStorage, String>("location".to_string(), || "".to_string());
     let weather = use_resource(move || async move { get_weather(location.to_string()).await });
     let forecast = use_resource(move || async move { get_forecast(location.to_string()).await });
 

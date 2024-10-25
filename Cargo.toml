@@ -11,10 +11,11 @@ async-std = "1.13.0"
 chrono = "0.4.38"
 chrono-tz = "0.10.0"
 
-dioxus = { version = "0.5.6", features = ["web"] }
+dioxus = { version = "0.5.6", features = ["router", "web"] }
 
 # Debug
 dioxus-logger = "0.5.1"
+dioxus-sdk = { version = "0.5.0", features = ["storage"] }
 manganis = "0.2.2"
 reqwest = { version = "0.12.8", features = ["json"] }
 serde = "1.0.213"
