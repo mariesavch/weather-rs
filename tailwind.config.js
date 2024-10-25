@@ -31,15 +31,10 @@ module.exports = {
         mantle: 'rgb(var(--mantle))',
         crust: 'rgb(var(--crust))',
       },
-      // fontFamily: {
-      //   sans: ['var(--font-cartographcf)', ...fontFamily.sans],
-      //   mono: ['var(--font-cartographcf)', ...fontFamily.mono],
-      // },
-      // fontWeight: {
-      //   semibold: '700',
-      //   bold: '800',
-      //   extrabold: '900',
-      // },
+      fontFamily: {
+        sans: "Cartograph CF",
+        mono: "Cartograph CF",
+      },
     },
   },
   future: {

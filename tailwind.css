@@ -51,7 +51,32 @@
 }
 
 :root {
-  @apply scroll-smooth font-sans text-text bg-base antialiased selection:bg-surface1 leading-relaxed
+  @apply scroll-smooth font-sans text-text bg-base antialiased selection:bg-surface1 leading-relaxed;
+  font-family: "Cartograph CF";
+}
+
+@font-face {
+  font-family: "Cartograph CF";
+  src: url("fonts/CartographCF-Regular.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Cartograph CF";
+  src: url("fonts/CartographCF-Bold.woff2") format('woff2');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Cartograph CF";
+  src: url("fonts/CartographCF-BoldItalic.woff2") format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cartograph CF";
+  src: url("fonts/CartographCF-RegularItalic.woff2") format('woff2');
+  font-style: italic;
 }
 
 * {
