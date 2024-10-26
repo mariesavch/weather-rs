@@ -1,9 +1,8 @@
 #![allow(non_snake_case)]
 
-use chrono::DateTime;
-use chrono_tz::Tz;
 use dioxus::prelude::*;
 use dioxus_sdk::storage::*;
+use js_sys::{wasm_bindgen::JsValue, Date};
 use serde::Deserialize;
 
 const _TAILWIND_URL: &str = manganis::mg!(file("assets/tailwind.css"));
@@ -61,15 +60,14 @@ async fn get_forecast(location: String) -> reqwest::Result<ForecastData> {
         .await
 }
 
-fn formatTime(time: i64) -> String {
-    let tz: Tz = chrono_tz::Asia::Yekaterinburg;
+pub fn formatTime(time: i64) -> String {
+    let date = Date::new(&JsValue::from_f64((time * 1000) as f64));
+    let hours = date.get_hours();
+    let minutes = date.get_minutes();
 
-    let datetime = DateTime::from_timestamp(time, 0)
-        .unwrap()
-        .with_timezone(&tz);
-
-    datetime.format("%H:%M").to_string()
+    format!("{:02}:{:02}", hours, minutes)
 }
+
 #[component]
 fn App() -> Element {
     let mut location =
