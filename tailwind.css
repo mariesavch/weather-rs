@@ -3,62 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --rosewater: #ff8389;
-  --flamingo: #ff8389;
-  --red: #ff8389;
-  --maroon: #ff8389;
-  --pink: #ff7eb6;
-  --mauve: #be95ff;
-  --peach: #d44a1c;
-  --yellow: #ab8600;
-  --green: #08bdba;
-  --teal: #33b1ff;
-  --sky: #33b1ff;
-  --sapphire: #33b1ff;
-  --blue: #78a9ff;
-  --lavender: #78a9ff;
-  --text: #ffffff;
-  --subtext1: #f4f4f4;
-  --subtext0: #e0e0e0;
-  --overlay2: #adadad;
-  --overlay1: #949494;
-  --overlay0: #7a7a7a;
-  --surface2: #4f4f4f;
-  --surface1: #383838;
-  --surface0: #2e2e2e;
-  --base: #161616;
-  --mantle: #0d0d0d;
-  --crust: #000000;
+  --red: 255 131 137;
+  --pink: 255 126 182;
+  --mauve: 190 149 255;
+  --peach: 212 74 28;
+  --yellow: 171 134 0;
+  --green: 8 189 186;
+  --teal: 51 177 255;
+  --blue: 120 169 255;
+  --text: 255 255 255;
+  --subtext1: 244 244 244;
+  --subtext0: 224 224 224;
+  --overlay2: 173 173 173;
+  --overlay1: 148 148 148;
+  --overlay0: 122 122 122;
+  --surface2: 79 79 79;
+  --surface1: 56 56 56;
+  --surface0: 46 46 46;
+  --base: 22 22 22;
+  --mantle: 13 13 13;
+  --crust: 0 0 0;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --rosewater: #c14a4a;
-    --flamingo: #c14a4a;
-    --pink: #945e80;
-    --mauve: #945e80;
-    --red: #c14a4a;
-    --maroon: #c14a4a;
-    --peach: #c35e0a;
-    --yellow: #a96b2c;
-    --green: #6c782e;
-    --teal: #4c7a5d;
-    --sky: #4c7a5d;
-    --sapphire: #4c7a5d;
-    --blue: #45707a;
-    --lavender: #45707a;
-    --text: #654735;
-    --subtext1: #7b5d44;
-    --subtext0: #8f6f56;
-    --overlay2: #a28368;
-    --overlay1: #b6977a;
-    --overlay0: #c9aa8c;
-    --surface2: #A79C86;
-    --surface1: #C9C19F;
-    --surface0: #DFD6B1;
-    --base: #fbf1c7;
-    --mantle: #F3EAC1;
-    --crust: #E7DEB7;
+    --red: 218 30 40;
+    --pink: 208 38 112;
+    --mauve: 138 63 252;
+    --peach: 212 74 28;
+    --yellow: 171 134 0;
+    --green: 0 125 121;
+    --teal: 17 146 232;
+    --blue: 15 98 254;
+    --text: 0 0 0;
+    --subtext1: 40 40 40;
+    --subtext0: 71 71 71;
+    --overlay2: 87 87 87;
+    --overlay1: 89 89 89;
+    --overlay0: 115 115 115;
+    --surface2: 140 140 140;
+    --surface1: 209 209 209;
+    --surface0: 230 230 230;
+    --base: 255 255 255;
+    --mantle: 242 242 242;
+    --crust: 235 235 235;
   }
 }
 
