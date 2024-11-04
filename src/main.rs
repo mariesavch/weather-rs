@@ -4,6 +4,7 @@ use dioxus::prelude::*;
 use dioxus_sdk::storage::*;
 use js_sys::{wasm_bindgen::JsValue, Date};
 use serde::Deserialize;
+use tailwind_fuse::tw_merge;
 
 const _TAILWIND_URL: &str = manganis::mg!(file("assets/tailwind.css"));
 
@@ -86,11 +87,12 @@ fn App() -> Element {
                     r#type: "text",
                     autofocus: true,
                     oninput: move |event| location.set(event.value()),
-                    class: "rounded-md border border-surface0 bg-base
-                            py-2 px-4 capitalize shadow-sm
-                            outline-none transition-colors duration-300
-                            placeholder:text-overlay0 hover:border-surface1
-                            focus:text-text focus:border-surface2"
+                    class: tw_merge!(
+                        "rounded-md border border-surface0 bg-base py-2 px-4 capitalize",
+                        "outline-none transition-colors duration-300",
+                        "placeholder:text-overlay0 hover:border-surface1",
+                        "focus:text-text focus:border-surface2"
+                    )
                 }
                 div { class: "mt-6",
                     if let Some(Ok(data)) = weather.read().as_ref() {
