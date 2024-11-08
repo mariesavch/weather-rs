@@ -6,8 +6,6 @@ use js_sys::{wasm_bindgen::JsValue, Date};
 use serde::Deserialize;
 use tailwind_fuse::tw_merge;
 
-const _TAILWIND_URL: &str = manganis::mg!(file("assets/tailwind.css"));
-
 fn main() {
     dioxus_sdk::storage::set_dir!();
     dioxus::launch(App);
@@ -77,6 +75,7 @@ fn App() -> Element {
     let forecast = use_resource(move || async move { get_forecast(location.to_string()).await });
 
     rsx! {
+        document::Link { rel: "stylesheet", href: asset!("/assets/tailwind.css") }
         main { class: "mx-auto max-w-[850px] px-6 pb-20",
             div { class: "pt-6 min-[950px]:pt-16",
                 input {
@@ -92,7 +91,7 @@ fn App() -> Element {
                         "outline-none transition-colors duration-300",
                         "placeholder:text-overlay0 hover:border-surface1",
                         "focus:text-text focus:border-surface2"
-                    )
+                    ),
                 }
                 div { class: "mt-6",
                     if let Some(Ok(data)) = weather.read().as_ref() {
@@ -123,16 +122,15 @@ fn App() -> Element {
                                 }
                             }
                             if let Some(Ok(data)) = forecast.read().as_ref() {
-                                {data.list.iter().map(|forecast_data|
-                                rsx! (
-                                        li { class: "pr-4",
-                                            div { class: "flex flex-col gap-1 py-3 min-[820px]:flex-row min-[820px]:gap-9",
-                                                span { class: "text-overlay0 sm:w-20", "{formatTime(forecast_data.dt)}" }
-                                                span { class: "font-semibold sm:w-12", "{forecast_data.main.temp.round()}°C" }
-                                                span { class: "capitalize", "{forecast_data.weather[0].description}" }
-                                            }
+                                {data.list.iter().map(|forecast_data| rsx! {
+                                    li { class: "pr-4",
+                                        div { class: "flex flex-col gap-1 py-3 min-[820px]:flex-row min-[820px]:gap-9",
+                                            span { class: "text-overlay0 sm:w-20", "{formatTime(forecast_data.dt)}" }
+                                            span { class: "font-semibold sm:w-12", "{forecast_data.main.temp.round()}°C" }
+                                            span { class: "capitalize", "{forecast_data.weather[0].description}" }
                                         }
-                                ))}
+                                    }
+                                })}
                             }
                         }
                     }
