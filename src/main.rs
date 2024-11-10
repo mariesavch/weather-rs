@@ -131,6 +131,7 @@ make_styles! {
             background_color: "var(--base)",
             color: "var(--text)",
             line_height: "1.6",
+            font_family: "Cartograph CF",
         },
         "@media (hover: hover) and (pointer: fine)" {
             ".animated_list li" {
@@ -215,6 +216,19 @@ fn App() -> Element {
     let forecast = use_resource(move || async move { get_forecast(location.to_string()).await });
 
     rsx! {
+        style {
+            "
+            @font-face {{
+            font-family: 'Cartograph CF';
+            src: url('./assets/fonts/CartographCF-Regular.woff2') format('woff2');
+            }}
+
+            @font-face {{
+            font-family: 'Cartograph CF';
+            src: url('./assets/fonts/CartographCF-Bold.woff2') format('woff2');
+            font-weight: bold;
+            }}"
+        }
         main {
             margin_left: "auto",
             margin_right: "auto",
