@@ -273,6 +273,7 @@ fn App() -> Element {
                         ul {
                             class: &cls.animated_list as &str,
                             all: "unset",
+                            list_style_type: "none",
                             display: "grid",
                             grid_template_columns: "repeat(2, minmax(0px, 1fr))",
                             margin_top: "20px",
